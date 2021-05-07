@@ -14,7 +14,7 @@ public class PersonTest {
     public static final int DEFAULT_AGE = 29;
     public static final int AFTER_BIRTHDAY_AGE = 30;
 
-    @DisplayName(" корректно заполнять конструктор")
+    @DisplayName(" корректно создавать с помощью конструктора")
     @Test
     public void shouldHaveCorrectConstructor() {
         Person person = new Person(DEFAULT_NAME, DEFAULT_AGE);
@@ -27,7 +27,7 @@ public class PersonTest {
                 ()-> assertEquals(DEFAULT_AGE,person.getAge()));
     }
 
-    @DisplayName(" прибавлять +1 к возрасту")
+    @DisplayName(" должен выполнять метод birthday корректно")
     @Test
     public void shouldHavePlusOneYear(){
         Person person = new Person(DEFAULT_NAME, DEFAULT_AGE);
