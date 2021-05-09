@@ -1,19 +1,31 @@
 package ru.itsjava.hw;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 
-@AllArgsConstructor
+import javax.swing.*;
+
 @Data
 public class Person {
     private String name;
     private int age;
 
+    public Person(String name, int age) throws AgeNotValidException {
+        this.name = name;
+        if ((this.age = age) <= 0) {
+            throw new AgeNotValidException("Возраст меньше или равен 0", age);
+        }
+        if ((this.age = age) >= 150) {
+            throw new AgeNotValidException("Возраст больше или равен 150", age);
+        }
+        this.age = age;
+
+    }
+
     public void birthday() {
         this.age = age + 1;
     }
 
-    public boolean takeBear(){
+    public boolean takeBear() {
         return this.age >= 18;
     }
 }
